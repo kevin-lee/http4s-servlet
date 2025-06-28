@@ -10,8 +10,7 @@ val Scala213 = "2.13.16"
 ThisBuild / crossScalaVersions := Seq("2.12.20", Scala213, "3.3.6")
 ThisBuild / scalaVersion := Scala213 // the default Scala
 
-ThisBuild / githubWorkflowJavaVersions --= List(JavaSpec.temurin("8"), JavaSpec.temurin("11"))
-ThisBuild / tlJdkRelease := Some(17)
+//ThisBuild / githubWorkflowJavaVersions --= List(JavaSpec.temurin("8"), JavaSpec.temurin("11"))
 ThisBuild / startYear := Some(2013)
 
 lazy val root = tlCrossRootProject.aggregate(
@@ -41,6 +40,8 @@ lazy val servlet4 = project
   .settings(
     name := "http4s-servlet4",
     description := "Portable servlet implementation for http4s servers",
+    githubWorkflowJavaVersions --= List(JavaSpec.temurin("8"), JavaSpec.temurin("11")),
+    tlJdkRelease := Some(8),
     libraryDependencies ++= Seq(
       "jakarta.servlet" % "jakarta.servlet-api" % servletApi4Version % Provided,
       "org.eclipse.jetty" % "jetty-client" % jettyVersion % Test,
@@ -59,6 +60,8 @@ lazy val servlet5 = project
   .settings(
     name := "http4s-servlet5",
     description := "Portable servlet implementation for http4s servers",
+    githubWorkflowJavaVersions --= List(JavaSpec.temurin("8"), JavaSpec.temurin("11")),
+    tlJdkRelease := Some(8),
     libraryDependencies ++= Seq(
       "jakarta.servlet" % "jakarta.servlet-api" % servletApi6Version % Provided,
       "org.eclipse.jetty" % "jetty-client" % jettyVersion % Test,
@@ -77,6 +80,8 @@ lazy val servlet6 = project
   .settings(
     name := "http4s-servlet6",
     description := "Portable servlet implementation for http4s servers",
+    githubWorkflowJavaVersions --= List(JavaSpec.temurin("8"), JavaSpec.temurin("11")),
+    tlJdkRelease := Some(11),
     libraryDependencies ++= Seq(
       "jakarta.servlet" % "jakarta.servlet-api" % servletApi6Version % Provided,
       "org.eclipse.jetty" % "jetty-client" % jettyVersion % Test,
